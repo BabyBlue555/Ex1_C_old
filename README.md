@@ -1,2 +1,2 @@
 # Program-Engineering
-projects from Program Engineering coure, year B semester A
+projects from Program Engineering course, year B semester A
