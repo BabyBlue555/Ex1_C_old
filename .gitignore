@@ -1,0 +1,8 @@
+advancedClassificationLoop.o
+advancedClassificationRecursion.o
+basicClassification.o
+*.o
+*.a
+*.so
+*.txt
+main
