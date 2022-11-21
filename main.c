@@ -3,9 +3,6 @@
 //
 
 #include <stdio.h>
-#include "advancedClassificationLoop.c"
-#include "basicClassification.c"
-#include "advancedClassificationRecursion.c"
 #include "NumClass.h"
 
 
