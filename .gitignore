@@ -6,3 +6,4 @@ basicClassification.o
 *.so
 *.txt
 main
+.gitignore
