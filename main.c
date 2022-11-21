@@ -13,7 +13,7 @@ void main(){
     int min,max=0;
     int i=0;
 
-    printf("please enter two positive numbers");
+   // printf("please enter two positive numbers");
     scanf("%d%d", &num1,&num2);
 
 
@@ -26,34 +26,39 @@ void main(){
         max=num1;
     }
 
+
+   for(i=min;i<=max;i++){
+        if(isArmstrong(i)){ // factorial
+             printf("The Armstrong numbers are: %d " , i );
+          //   break;
+     
+        }
+    }
+
+       
+    for(i=min;i<=max;i++){
+        if(isPalindrome(i)){ 
+             printf("The Palindromes are: %d " , i );
+           //  break;
+       
+        }
+    }
+
     for(i=min;i<=max;i++){
         if(isPrime(i)){
-          printf("the number %d is prime\n" , i );
+          printf("The Prime numbers are: %d " , i );
           //break;
         
         }
     }
     for(i=min;i<=max;i++){
         if(isStrong(i)){ // power
-             printf("the number %d is strong\n" , i );
+             printf("The Strong numbers are: %d " , i );
            //  break;
        
         }
     }
-    for(i=min;i<=max;i++){
-        if(isArmstrong(i)){ // factorial
-             printf("the number %d is Armstrong\n" , i );
-          //   break;
-     
-        }
-    }
-    for(i=min;i<=max;i++){
-        if(isPalindrome(i)){ 
-             printf("the number %d is palindrom\n" , i );
-           //  break;
-       
-        }
-    }
+
 
    }
 
