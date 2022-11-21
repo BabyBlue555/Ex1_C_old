@@ -9,7 +9,8 @@ BASIC = basicClassification.o
 FLAGS= -Wall -g
 .PHONY:clean all
 
-all: advancedClassificationLoop.o advancedClassificationRecursion.o basicClassification.o advancedClassificationLoop.c advancedClassificationRecursion.c basicClassification.c
+all: advancedClassificationLoop.o advancedClassificationRecursion.o basicClassification.o 
+#advancedClassificationLoop.c advancedClassificationRecursion.c basicClassification.c
 
 # mains, nainloop and maindrec - executables
 
