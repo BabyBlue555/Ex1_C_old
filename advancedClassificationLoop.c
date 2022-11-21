@@ -4,8 +4,9 @@
 
 //power - calculates the digit's power in recursion
 int calcPower(int digit, int power){
-    if (power==1)
+    if (power==1){
         return digit;
+    }
     return digit*calcPower(digit,power-1);
 
 }
@@ -22,6 +23,10 @@ int countDigits(int num){
 }
 
 // isArmstrong, if the the num is equal to the sum of the nth powers of its digit.
+
+ /// this function checks if a number is an armstrog number with while loop
+ 
+
  int isArmstrong(int num ){
     int original = num;
     int power=countDigits(num);
@@ -47,8 +52,10 @@ int countDigits(int num){
 
 //isPalindrome
 
+ /// this function checks if a number is palindrom with while loop
 
- int isPalindrome (int num){
+
+ int isPalindrome(int num){
     int count=countDigits(num);
     int bool=1;
     while((count/2)>0 && bool){
