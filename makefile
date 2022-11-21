@@ -1,5 +1,5 @@
 CC=gcc
-AR=ar
+AR=ar -rcs
 OBJECTS_MAIN=main.o
 #OBJECTS_LIB_LOOP=basicClassification.c advancedClassificationLoop.c numClass.h
 #OBJECTS_LIB_RECURSION=basicClassification.c advancedClassificationRecursion.c numClass.h
@@ -7,7 +7,7 @@ LOOP = advancedClassificationLoop.o
 REC = advancedClassificationRecursion.o
 BASIC = basicClassification.o
 FLAGS= -Wall -g
-PHONY.:clean all
+.PHONY:clean all
 
 
 # mains, nainloop and maindrec - executables
@@ -15,14 +15,14 @@ PHONY.:clean all
 mains: main.o libclassrec.a
 	$(CC) $(FLAGS) -o mains main.o libclassrec.a
 mainloop:main.o libclassloops.so
- 	$(CC) $(FLAGS) -o mains main.o ./libclassloops.so
+	$(CC) $(FLAGS) -o mains main.o ./libclassloops.so
 maindrec: main.o libclassrec.so
 	$(CC) $(FLAGS) -o mains main.o ./libclassrec.so
 
 
 # - libraries
 
-loops : libclassloops.a
+loops: libclassloops.a
 recursives: libclassrec.a
 loopd: libclassloops.so
 recursived: libclassrec.so
