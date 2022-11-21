@@ -49,24 +49,27 @@ main.o: main.c NumClass.h
 	$(CC) $(FLAGS) -c main.c
 
 
-basicClassification.o:
+basicClassification.o: basicClassification.c
 	$(CC) $(FLAGS) -c basicClassification.c
 
-advancedClassificationRecursion.o:
+advancedClassificationRecursion.o: advancedClassificationRecursion.c
 	$(CC) $(FLAGS) -c advancedClassificationRecursion.c
 
-advancedClassificationLoop.o:
+advancedClassificationLoop.o: advancedClassificationLoop.c
 	$(CC) $(FLAGS) -c advancedClassificationLoop.c
 	
+
+
+# compilaing the .o files
 	
 basicClassification.c:
-	$(CC) $(FLAGS) -c 
+	$(CC) $(FLAGS) -c basicClassification.c
 
 advancedClassificationRecursion.c:
-	$(CC) $(FLAGS) -c
+	$(CC) $(FLAGS) -c advancedClassificationRecursion.c
 
 advancedClassificationLoop.c:
-	$(CC) $(FLAGS) -c 
+	$(CC) $(FLAGS) -c advancedClassificationLoop.c
 	
 	
 	
