@@ -40,11 +40,11 @@ maindrec: $(OBJECTS_MAIN) libclassrec.so
 
 libclassloops.a: $(OBJECTS_LOOP) $(OBJECTS_BASE) 
 	$(AR) -rcs libclassloops.a $(OBJECTS_LOOP) $(OBJECTS_BASE) 
-	ranlib libclassloops.a
+	#ranlib libclassloops.a
 
 libclassrec.a: $(OBJECTS_REC) $(OBJECTS_BASE) 
 	$(AR) -rcs libclassrec.a $(OBJECTS_REC) $(OBJECTS_BASE) 
-	ranlib libclassrec.a
+	#ranlib libclassrec.a
 
 libclassloops.so: $(OBJECTS_LOOP) $(OBJECTS_BASE) 
 	$(CC) -shared -o libclassloops.so $(OBJECTS_LOOP) $(OBJECTS_BASE) 
@@ -55,16 +55,16 @@ libclassrec.so: $(OBJECTS_REC) $(OBJECTS_BASE)
 
 # compiling the o. files
 $(OBJECTS_LOOP): $(LOOP_C) $(NUM_H)
-	$(CC) $(FLAGS) -c $(LOOP_C)
+	$(CC) $(FLAGS) -c $(LOOP_C) $(NUM_H)
 
 $(OBJECTS_REC): $(REC_C)  $(NUM_H)
-	$(CC) $(FLAGS) -c $(REC_C)
+	$(CC) $(FLAGS) -c $(REC_C) $(NUM_H)
 
 $(OBJECTS_BASE): $(BASE_C) $(NUM_H)
-	$(CC) $(FLAGS) -c $(BASE_C)
+	$(CC) $(FLAGS) -c $(BASE_C) $(NUM_H)
 
 $(OBJECTS_MAIN): main.c $(NUM_H)
-	$(CC) $(FLAGS) -c main.c
+	$(CC) $(FLAGS) -c main.c $(NUM_H)
 
 .PHONY: clean loops recursives recursived loopd all
 
