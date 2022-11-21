@@ -1,82 +1,76 @@
 CC=gcc
-AR=ar -rcs
 OBJECTS_MAIN=main.o
-LOOP = advancedClassificationLoop.o
-REC = advancedClassificationRecursion.o
-BASIC = basicClassification.o
-HED=NumClass.h
-FLAGS= -Wall -g
-.PHONY:clean all
+OBJECTS_ALL=libclassloops.a libclassrec.a libclassloops.so libclassrec.so mains maindloop maindrec
+OBJECTS_REC=advancedClassificationRecursion.o
+OBJECTS_LOOP=advancedClassificationLoop.o
+OBJECTS_BASE=basicClassification.o
 
-all: mains mainloop maindrec advancedClassificationLoop.o advancedClassificationRecursion.o basicClassification.o 
-#advancedClassificationLoop.c advancedClassificationRecursion.c basicClassification.c
+REC_C=advancedClassificationRecursion.c
+LOOP_C=advancedClassificationLoop.c
+BASE_C=basicClassification.c
 
-#  executables mains, mainloop and maindrec 
-
-mains: main.o libclassrec.a
-	$(CC) $(FLAGS) -o mains main.o libclassrec.a
-mainloop:main.o libclassloops.so
-	$(CC) $(FLAGS) -o mains main.o ./libclassloops.so
-maindrec: main.o libclassrec.so
-	$(CC) $(FLAGS) -o mains main.o ./libclassrec.so
+NUM_H = NumClass.h
+FLAGS= -Wall
 
 
-# - libraries
 
+all: $(OBJECTS_ALL)
+
+# creating the libraries
 loops: libclassloops.a
-recursives: libclassrec.a
-loopd: libclassloops.so
-recursived: libclassrec.so
+recursives:libclassrec.a
+loopd:libclassloops.so
+recursived:libclassrec.so
+
+# executables
+# it is possible to change the order of and put -o before the others.
+mains: $(OBJECTS_MAIN) libclassrec.a
+	$(CC) $(FLAGS) $(OBJECTS_MAIN) ./libclassrec.a -o mains
 
 
-libclassloops.a: $(LOOP) $(BASIC)
-	$(AR) libclassloops.a $(LOOP) $(BASIC)
-
-libclassloops.so: $(LOOP) $(BASIC)
-	$(CC) $(FLAGS) -shared -fPIC -o libclassloops.so $(LOOP) $(BASIC)
-
-libclassrec.a: $(REC) $(BASIC)
-	$(AR) libclassrec.a $(REC) $(BASIC)
-
-libclassrec.so: $(REC) $(BASIC)
-	$(CC) $(FLAGS) -shared -fPIC -o libclassrec.so $(REC) $(BASIC)
+maindloop: $(OBJECTS_MAIN) libclassloops.so
+	$(CC) $(FLAGS) $(OBJECTS_MAIN) ./libclassloops.so -o maindloop
 
 
+maindrec: $(OBJECTS_MAIN) libclassrec.so
+	$(CC) $(FLAGS) $(OBJECTS_MAIN) ./libclassrec.so -o maindrec
+
+# libraries
+# check if ranlib is okay
+
+libclassloops.a: $(OBJECTS_LOOP) $(OBJECTS_BASE) 
+	$(AR) -rcs libclassloops.a $(OBJECTS_LOOP) $(OBJECTS_BASE) 
+	ranlib libclassloops.a
+
+libclassrec.a: $(OBJECTS_REC) $(OBJECTS_BASE) 
+	$(AR) -rcs libclassrec.a $(OBJECTS_REC) $(OBJECTS_BASE) 
+	ranlib libclassrec.a
+
+libclassloops.so: $(OBJECTS_LOOP) $(OBJECTS_BASE) 
+	$(CC) -shared -o libclassloops.so $(OBJECTS_LOOP) $(OBJECTS_BASE) 
+
+libclassrec.so: $(OBJECTS_REC) $(OBJECTS_BASE) 
+	$(CC) -shared -o libclassrec.so $(OBJECTS_REC) $(OBJECTS_BASE) 
 
 
-# compilaing the .o files
+# compiling the o. files
+$(OBJECTS_LOOP): $(LOOP_C) $(NUM_H)
+	$(CC) $(FLAGS) -c $(LOOP_C)
 
-main.o: main.c NumClass.h
+$(OBJECTS_REC): $(REC_C)  $(NUM_H)
+	$(CC) $(FLAGS) -c $(REC_C)
+
+$(OBJECTS_BASE): $(BASE_C) $(NUM_H)
+	$(CC) $(FLAGS) -c $(BASE_C)
+
+$(OBJECTS_MAIN): main.c $(NUM_H)
 	$(CC) $(FLAGS) -c main.c
 
-
-basicClassification.o: $(HED) basicClassification.c
-	$(CC) $(FLAGS) -c $(HED) basicClassification.c 
-
-advancedClassificationRecursion.o: $(HED) advancedClassificationRecursion.c
-	$(CC) $(FLAGS) -c $(HED) advancedClassificationRecursion.c
-
-advancedClassificationLoop.o: $(HED) advancedClassificationLoop.c
-	$(CC) $(FLAGS) -c $(HED) advancedClassificationLoop.c
-	
-
-# compilaing the .o files
-	
-#basicClassification.c:
-#	$(CC) $(FLAGS) -c basicClassification.c
-
-#advancedClassificationRecursion.c:
-#	$(CC) $(FLAGS) -c advancedClassificationRecursion.c
-
-#advancedClassificationLoop.c:
-#	$(CC) $(FLAGS) -c advancedClassificationLoop.c
-	
-	
-	
-		
-# compiling the .c files
-
-#clear
+.PHONY: clean loops recursives recursived loopd all
 
 clean:
-	rm -f cmake-build-debug *.o *.a *.so mains maindloop maindrec
+	rm -f *.o *.a *.so mains maindrec maindloop
+
+
+
+
