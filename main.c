@@ -35,30 +35,32 @@ void main(){
           //break;
         printf(" ");
         }
+    }
+    for(i=min;i<=max;i++){
         if(isStrong(i)){ // power
              printf("the number %d is strong\n" , i );
            //  break;
         printf(" ");
         }
+    }
+    for(i=min;i<=max;i++){
         if(isArmstrong(i)){ // factorial
              printf("the number %d is Armstrong\n" , i );
           //   break;
         printf(" ");
         }
+    }
+    for(i=min;i<=max;i++){
         if(isPalindrome(i)){ 
              printf("the number %d is palindrom\n" , i );
            //  break;
         printf(" " );
         }
-
-
-
+    }
 
    }
 
 
-    }
-    
-    
-    
 
+    
+  
