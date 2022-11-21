@@ -26,24 +26,28 @@ int calcPower_(int digit, int power){
 
 // isArmstrong -  recursion
 
-int isArmstrong_(int num){
+ ///this function checks if a number is an armstrong number recursively
+
+
+int isArmstrong(int num){
     if (num==0)
     {
 
         return 0;
     }
-    return calcPower_(num%10,countDigits_(num))+isArmstrong_(num/10) ;
+    return calcPower_(num%10,countDigits_(num))+isArmstrong(num/10) ;
     
 
 }
 
- int isPalindrome_ (int num){
+ ///  this function checks if a number is palindrom recursively
+ int isPalindrome(int num){
     if(countDigits_(num)<2){
         return 1;
     }
 
     if(num%10 == num / (calcPower_(10,countDigits_(num)-1)))
-        return isPalindrome_((num % calcPower_(10,countDigits_(num)-1 ) )/10);
+        return isPalindrome((num % calcPower_(10,countDigits_(num)-1 ) )/10);
     else
         return 0;    
 
