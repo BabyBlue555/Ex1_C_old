@@ -11,7 +11,7 @@ FLAGS= -Wall -g
 all: mains mainloop maindrec advancedClassificationLoop.o advancedClassificationRecursion.o basicClassification.o 
 #advancedClassificationLoop.c advancedClassificationRecursion.c basicClassification.c
 
-# mains, nainloop and maindrec - executables
+#  executables mains, mainloop and maindrec 
 
 mains: main.o libclassrec.a
 	$(CC) $(FLAGS) -o mains main.o libclassrec.a
@@ -60,17 +60,16 @@ advancedClassificationLoop.o: $(HED) advancedClassificationLoop.c
 	$(CC) $(FLAGS) -c $(HED) advancedClassificationLoop.c
 	
 
-
 # compilaing the .o files
 	
-basicClassification.c:
-	$(CC) $(FLAGS) -c basicClassification.c
+#basicClassification.c:
+#	$(CC) $(FLAGS) -c basicClassification.c
 
-advancedClassificationRecursion.c:
-	$(CC) $(FLAGS) -c advancedClassificationRecursion.c
+#advancedClassificationRecursion.c:
+#	$(CC) $(FLAGS) -c advancedClassificationRecursion.c
 
-advancedClassificationLoop.c:
-	$(CC) $(FLAGS) -c advancedClassificationLoop.c
+#advancedClassificationLoop.c:
+#	$(CC) $(FLAGS) -c advancedClassificationLoop.c
 	
 	
 	
