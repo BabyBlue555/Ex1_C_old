@@ -24,7 +24,7 @@ int main(){
     else{
         min=num2;
         max=num1;
-    }
+    } 
 
   printf("The Armstrong numbers are: ");
    for(i=min;i<=max;i++){
