@@ -28,12 +28,28 @@ int countDigits(int num){
     return count;
 }
 
-int armstrong(int num, int numDigits){
-    if(num==0){ // if num==0
+// int armstrong(int num, int numDigits){
+//     if(num==0){ // if num==0
+//         return 0;
+//     }
+//     else
+//         return calcPower((num%10),numDigits)+ armstrong(num/10,numDigits);
+// }
+
+int armstrong(int num,int numDigits){
+    int original=num;
+    int sumPower=0;
+     int power=countDigits(num);
+    while(num>0){
+        sumPower=sumPower+calcPower(num%10,power);
+        num=num/10;
+    }
+    if(sumPower== original){
+        return 1;
+    }
+    else{
         return 0;
     }
-    else
-        return calcPower((num%10),numDigits)+ armstrong(num/10,numDigits);
 }
 
 //isPrime - checks if number is prime or not
