@@ -6,4 +6,9 @@ basicClassification.o
 *.so
 *.txt
 main
-.gitignore
+mains
+maindrec
+maindloop
+.vscode/
+NumClass.h.gch
+
