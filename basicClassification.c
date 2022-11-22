@@ -2,6 +2,39 @@
 // Created by michal on 13/11/22.
 //
 
+// fact - helping function for isStrong - calculates the factorial of the digit
+int fact(int n);
+//countDigits - is used in order to simplify the recursions in both isArmstrong and isPalindrom
+int countDigits(int num); 
+//calcPower - calculates the digit's power in recursion
+int calcPower(int digit, int power); 
+// for isArmstrong function in advancedClassificationRecursion.c
+int armstrong(int num, int numDigits);
+
+int calcPower(int digit, int power){
+    if (power==1){
+        return digit;
+    }
+    return digit*calcPower(digit,power-1);
+
+}
+
+int countDigits(int num){
+    int count =0;
+    while (num>0){
+        count=count+1;
+        num=num/10;
+    }
+    return count;
+}
+
+int armstrong(int num, int numDigits){
+    if(num==0){ // if num==0
+        return 0;
+    }
+    else
+        return calcPower((num%10),numDigits)+ armstrong(num/10,numDigits);
+}
 
 //isPrime - checks if number is prime or not
 
@@ -25,7 +58,6 @@
     // }
 }
 
-// fact - helping function for isStrong - calculates the factorial of th
 int fact(int digit ){
     if(digit==0){
         return 1;
