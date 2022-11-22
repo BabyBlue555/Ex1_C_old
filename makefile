@@ -33,10 +33,10 @@ maindloop: $(OBJECTS_MAIN) libclassloops.so
 
 
 maindrec: $(OBJECTS_MAIN) libclassrec.so
-	$(CC) $(FLAGS) $(OBJECTS_MAIN) ./libclassrec.so -o maindrec
+	$(CC) $(FLAGS) -g $(OBJECTS_MAIN) ./libclassrec.so -o maindrec
 
 # libraries
-# check if ranlib is okay
+# check if ranlib is ok
 
 libclassloops.a: $(OBJECTS_LOOP) $(OBJECTS_BASE) 
 	$(AR) -rcs libclassloops.a $(OBJECTS_LOOP) $(OBJECTS_BASE) 
@@ -50,7 +50,7 @@ libclassloops.so: $(OBJECTS_LOOP) $(OBJECTS_BASE)
 	$(CC) -shared -o libclassloops.so $(OBJECTS_LOOP) $(OBJECTS_BASE) 
   
 libclassrec.so: $(OBJECTS_REC) $(OBJECTS_BASE) 
-	$(CC) -shared -o libclassrec.so $(OBJECTS_REC) $(OBJECTS_BASE) 
+	$(CC) -g -shared -o libclassrec.so $(OBJECTS_REC) $(OBJECTS_BASE) 
 
 
 # compiling the o. files
