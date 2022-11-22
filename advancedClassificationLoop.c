@@ -15,7 +15,7 @@ extern int calcPower(int digit, int power);
     int original = num;
     int power=countDigits(num);
     int sumPower=0;
-    while (num){
+    while (num>0){
        sumPower= sumPower+ calcPower(num%10, power);
        num=num/10;
     }
