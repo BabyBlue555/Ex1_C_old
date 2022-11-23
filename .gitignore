@@ -11,4 +11,10 @@ maindrec
 maindloop
 .vscode/
 NumClass.h.gch
+advancedClassificationLoop.c
+advancedClassificationRecursion.c
+basicClassification.c
+makefile
+main.c
+NumClass.h
 
