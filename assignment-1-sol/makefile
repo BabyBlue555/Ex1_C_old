@@ -40,11 +40,11 @@ maindrec: $(OBJECTS_MAIN) libclassrec.so
 
 libclassloops.a: $(OBJECTS_LOOP) $(OBJECTS_BASE) 
 	$(AR) -rcs libclassloops.a $(OBJECTS_LOOP) $(OBJECTS_BASE) 
-	#ranlib libclassloops.a
+	
 
 libclassrec.a: $(OBJECTS_REC) $(OBJECTS_BASE) 
 	$(AR) -rcs libclassrec.a $(OBJECTS_REC) $(OBJECTS_BASE) 
-	#ranlib libclassrec.a
+
 
 libclassloops.so: $(OBJECTS_LOOP) $(OBJECTS_BASE) 
 	$(CC) -shared -o libclassloops.so $(OBJECTS_LOOP) $(OBJECTS_BASE) 

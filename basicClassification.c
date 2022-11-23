@@ -3,13 +3,13 @@
 //
 
 // fact - helping function for isStrong - calculates the factorial of the digit
-int fact(int n);
+int fact(int);
 //countDigits - is used in order to simplify the recursions in both isArmstrong and isPalindrom
-int countDigits(int num); 
+int countDigits(int); 
 //calcPower - calculates the digit's power in recursion
-int calcPower(int digit, int power); 
+int calcPower(int,int); 
 // for isArmstrong function in advancedClassificationRecursion.c
-int armstrong(int num, int numDigits);
+//int armstrong(int num, int numDigits);
 
 int calcPower(int digit, int power){
     if (power==1){
@@ -36,21 +36,21 @@ int countDigits(int num){
 //         return calcPower((num%10),numDigits)+ armstrong(num/10,numDigits);
 // }
 
-int armstrong(int num,int numDigits){
-    int original=num;
-    int sumPower=0;
-     int power=countDigits(num);
-    while(num>0){
-        sumPower=sumPower+calcPower(num%10,power);
-        num=num/10;
-    }
-    if(sumPower== original){
-        return 1;
-    }
-    else{
-        return 0;
-    }
-}
+// int armstrong(int num,int numDigits){
+//     int original=num;
+//     int sumPower=0;
+//      int power=countDigits(num);
+//     while(num>0){
+//         sumPower=sumPower+calcPower(num%10,power);
+//         num=num/10;
+//     }
+//     if(sumPower== original){
+//         return 1;
+//     }
+//     else{
+//         return 0;
+//     }
+// }
 
 //isPrime - checks if number is prime or not
 

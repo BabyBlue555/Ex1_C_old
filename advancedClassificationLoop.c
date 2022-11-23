@@ -2,8 +2,8 @@
 // Created by michal on 13/11/22.
 //
 
-extern int countDigits(int n); 
-extern int calcPower(int digit, int power); 
+extern int countDigits(int ); 
+extern int calcPower(int,int ); 
 
 
 // isArmstrong, if the the num is equal to the sum of the nth powers of its digit.

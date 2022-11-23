@@ -6,9 +6,9 @@
 
 
 
-extern int calcPower(int digit, int power); 
-extern int countDigits(int num); 
-extern int armstrong(int num, int numDigits);
+extern int calcPower(int , int ); 
+extern int countDigits(int); 
+//extern int armstrong(int num, int numDigits);
 
 
 
@@ -17,14 +17,29 @@ extern int armstrong(int num, int numDigits);
  ///this function calls another function, armstrong(int), which checks if a number is an armstrong number recursively
 
 int isArmstrong(int num){
-    int ans=armstrong(num,countDigits(num));
-    if(ans==num){
+    int original = num;
+    int power=countDigits(num);
+    int sumPower=0;
+    while (num>0){
+       sumPower= sumPower+ calcPower(num%10, power);
+       num=num/10;
+    }
+    if(sumPower== original){
         return 1;
     }
     else{
         return 0;
     }
-}
+
+    }
+    // int ans=armstrong(num,countDigits(num));
+    // if(ans==num){
+    //     return 1;
+    // }
+    // else{
+    //     return 0;
+    // }
+
 
 // int isArmstrong(int num){
 //     if (num==0)
